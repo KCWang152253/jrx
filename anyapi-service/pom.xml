@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.jrx.anytech</groupId>
+        <artifactId>anytxn-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../anytxn-parent/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>anyapi-service</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <description>anyapi服务</description>
+
+    <modules>
+        <module>anyapi-service-base</module>
+        <module>anyapi-service-sdk</module>
+        <module>anyapi-service-server</module>
+    </modules>
+
+    <!-- 公共属性 -->
+    <properties>
+        <!--anytxn版本号管理-->
+        <anytxn.version>${project.version}</anytxn.version>
+        <!--docker-->
+        <fabric8.maven.plugin.version>0.35.0</fabric8.maven.plugin.version>
+        <harbor.auth.user>admin</harbor.auth.user>
+        <harbor.auth.passd>Changeme_123</harbor.auth.passd>
+        <harbor.registry>harbor.jiangrongxin.com</harbor.registry>
+        <java.version>8</java.version>
+<!--        <spring-cloud-alibaba-dependencies.version>2021.1</spring-cloud-alibaba-dependencies.version>-->
+<!--        <spring-cloud-dependencies.version>2021.0.0</spring-cloud-dependencies.version>-->
+    </properties>
+
+
+
+
+
+
+
+    <!-- 会被子模块直接继承 -->
+    <dependencyManagement>
+        <dependencies>
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-dependencies</artifactId>-->
+<!--                <version>${spring-cloud-dependencies.version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>com.alibaba.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
+<!--                <version>${spring-cloud-alibaba-dependencies.version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
+            <dependency>
+                <groupId>com.jrx.anytech</groupId>
+                <artifactId>anyapi-service-base</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.jrx.anytech</groupId>
+                <artifactId>anyapi-service-sdk</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.jrx.anytech</groupId>
+                <artifactId>anytxn-biz-common</artifactId>
+                <version>${anytxn.biz.common.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>ch.qos.logback</groupId>-->
+<!--            <artifactId>logback-classic</artifactId>-->
+<!--            <version>1.2.12</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.logging.log4j</groupId>-->
+<!--            <artifactId>log4j-slf4j-impl</artifactId>-->
+<!--        </dependency>-->
+
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_PATTERN">%sn %d{yyyy-MM-dd HH:mm:ss,SSS} [%-6p] ${sys:PID} [%t] %C{3}.%M:%L – %m%n</Property>
+        <Property name="LOG_PATTERN_CONSOLE">%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{%5p} %clr{${sys:PID}}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%C{3}}{cyan}.%clr{%M:%L}{yellow} %clr{:}{faint} %m%n%xwEx</Property>
+        <Property name="APP_LOG_ROOT">./app/logs</Property>
+    </Properties>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN_CONSOLE}" />
+        </Console>
+
+        <RollingFile name="file_log"
+                     fileName="${APP_LOG_ROOT}/${env:HOSTNAME:-anyapi}-application.log"
+                     filePattern="${APP_LOG_ROOT}/$${date:yyyy-MM-dd}/${env:HOSTNAME:-anyapi}-application-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50 MB" />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <!--<DefaultRolloverStrategy max="9999">
+                <Delete basePath="${APP_LOG_ROOT}" maxDepth="2">
+                    <IfFileName glob="*/*.log" />
+                    <IfLastModified age="15d" />
+                </Delete>
+            </DefaultRolloverStrategy>-->
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.anytech.anytxn" level="${env:LOG_LEVEL:-INFO}" additivity="false">
+            <AppenderRef ref="file_log" />
+            <AppenderRef ref="console" />
+        </Logger>
+        <Root level="${env:LOG_LEVEL:-INFO}">
+            <AppenderRef ref="console" />
+        </Root>
+    </Loggers>
+</Configuration>

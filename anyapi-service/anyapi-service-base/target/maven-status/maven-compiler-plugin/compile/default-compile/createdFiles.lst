@@ -1,0 +1,4 @@
+com/anytech/anytxn/anyapi/dto/card/CardApplicationResp.class
+com/anytech/anytxn/anyapi/dto/card/CardRepostLossReq.class
+com/anytech/anytxn/anyapi/dto/card/CardApplicationReq.class
+com/anytech/anytxn/anyapi/dto/AnyTxnHttpResponse.class

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/anyapi-service.iml" filepath="$PROJECT_DIR$/anyapi-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/anyapi-service-base/anyapi-service-base.iml" filepath="$PROJECT_DIR$/anyapi-service-base/anyapi-service-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/anyapi-service-sdk/anyapi-service-sdk.iml" filepath="$PROJECT_DIR$/anyapi-service-sdk/anyapi-service-sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/anyapi-service-server/anyapi-service-server.iml" filepath="$PROJECT_DIR$/anyapi-service-server/anyapi-service-server.iml" />
+    </modules>
+  </component>
+</project>
