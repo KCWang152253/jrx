@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue Apr 15 11:42:33 CST 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0196-378a-7cc9-0000209a4768 
+on database directory memory:/Users/kcwang/java/spring/jrx/4f0adb30-8dd9-4c23-accf-6a7bd7175563 with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Loaded from file:/Users/kcwang/Documents/maven/apache-maven-3.3.9/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_241-b07
+user.dir=/Users/kcwang/java/spring/jrx
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.16
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

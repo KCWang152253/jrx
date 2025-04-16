@@ -5,14 +5,10 @@ spring:
       config:
         prefix: anyapi
         file-extension: yaml
-        #        server-addr: 172.16.70.20:8848
-        #        namespace: 466b6b54-5640-43b0-b261-761e1f6e145e
         server-addr: 127.0.0.1:8848
         namespace: c91a7f69-cefc-4ee3-8350-07ab87affd05
         group: DEFAULT_GROUP
       discovery:
-        #        server-addr: 172.16.70.20:8848
-        #        namespace: 466b6b54-5640-43b0-b261-761e1f6e145e
         server-addr: 127.0.0.1:8848
         namespace: c91a7f69-cefc-4ee3-8350-07ab87affd05
         group: DEFAULT_GROUP

@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- spring boot 作为项目的父parent 的pom，保持当前一个产品线的基础spring boot版本一致 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.2.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.jrx.anytech</groupId>
+    <artifactId>anytxn-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+
+    <properties>
+        <aviator.version>4.2.9</aviator.version>
+        <cglib.version>3.2.5</cglib.version>
+        <commons-collections.version>4.4</commons-collections.version>
+        <commons-dbutils.version>1.7</commons-dbutils.version>
+        <commons-text.version>1.8</commons-text.version>
+        <disruptor.version>3.4.2</disruptor.version>
+        <fabric8.maven.plugin.version>0.35.0</fabric8.maven.plugin.version>
+        <fastjson.version>1.2.62</fastjson.version>
+        <guava.version>28.1-jre</guava.version>
+        <jasypt.version>2.1.2</jasypt.version>
+        <java.version>1.8</java.version>
+        <jetcache.version>2.5.16</jetcache.version>
+        <jpos.version>2.1.3</jpos.version>
+        <mybatis.version>3.5.3</mybatis.version>
+        <mybatis-spring.version>2.0.3</mybatis-spring.version>
+        <mybatis-spring-boot.version>2.1.1</mybatis-spring-boot.version>
+        <mybatis.pagehelper.starter.version>1.2.12</mybatis.pagehelper.starter.version>
+        <mybatis.plus.version>3.3.1</mybatis.plus.version>
+        <mybatis.starter.version>2.1.1</mybatis.starter.version>
+        <nacos.version>2.2.0.RELEASE</nacos.version>
+        <spring-boot.version>2.2.2.RELEASE</spring-boot.version>
+        <oracle.6.version>11.2.0.3</oracle.6.version>
+        <oracle.8.version>18.3.0</oracle.8.version>
+        <pagehelper.version>5.1.11</pagehelper.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+        <spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>
+        <spring-cloud-task.version>2.1.4.RELEASE</spring-cloud-task.version>
+        <swagger.version>2.9.2</swagger.version>
+        <swagger-annotations.version>1.5.20</swagger-annotations.version>
+        <swagger.bootstrap.ui.version>1.9.2</swagger.bootstrap.ui.version>
+        <powermock.version>2.0.7</powermock.version>
+        <mockito-core.version>2.28.2</mockito-core.version>
+        <plume.log.version>3.1.0-SNAPSHOT</plume.log.version>
+        <mysql.5.version>5.1.48</mysql.5.version>
+        <tomcat-embed.version>9.0.36</tomcat-embed.version>
+        <druid.version>1.1.23</druid.version>
+        <spring-cloud-task-batch.version>2.1.2.txn.RELEASE</spring-cloud-task-batch.version>
+        <shardingsphere.version>5.0.0-alpha</shardingsphere.version>
+        <log4j2.version>2.16.0</log4j2.version>
+        <!--  内部模块引用  -->
+        <anytxn.bis.core.version>1.0.0-SNAPSHOT</anytxn.bis.core.version>
+        <anytxn.biz.common.version>1.0.0-SNAPSHOT</anytxn.biz.common.version>
+        <anytxn.parameter.version>1.0.0-SNAPSHOT</anytxn.parameter.version>
+
+        <anytxn.cms.version>1.0.0-SNAPSHOT</anytxn.cms.version>
+        <anytxn.cms.front.version>1.0.0-SNAPSHOT</anytxn.cms.front.version>
+
+        <anytxn.rule.version>1.0.0-SNAPSHOT</anytxn.rule.version>
+        <anytxn.number.version>1.0.0-SNAPSHOT</anytxn.number.version>
+        <anytxn.simplified.batch.version>1.0.0-SNAPSHOT</anytxn.simplified.batch.version>
+        <anytxn.file.manager.version>1.0.0-SNAPSHOT</anytxn.file.manager.version>
+        <anytxn.sms.version>1.0.0-SNAPSHOT</anytxn.sms.version>
+        <anytxn.batch.sdk.version>3.1.0</anytxn.batch.sdk.version>
+
+        <anytxn.limit.version>1.0.0-SNAPSHOT</anytxn.limit.version>
+        <anytxn.card.version>1.0.0-SNAPSHOT</anytxn.card.version>
+        <anytxn.auth.version>1.0.0-SNAPSHOT</anytxn.auth.version>
+        <anytxn.transaction.version>1.0.0-SNAPSHOT</anytxn.transaction.version>
+        <anytxn.cust.account.version>1.0.0-SNAPSHOT</anytxn.cust.account.version>
+        <anytxn.message.version>1.0.0-SNAPSHOT</anytxn.message.version>
+        <anytxn.accounting.version>1.0.0-SNAPSHOT</anytxn.accounting.version>
+        <anytxn.accountant.version>1.0.0-SNAPSHOT</anytxn.accountant.version>
+        <anytxn.cardholder.version>1.0.0-SNAPSHOT</anytxn.cardholder.version>
+        <anytxn.cust.id.version>1.0.0-SNAPSHOT</anytxn.cust.id.version>
+        <anytxn.instalment.version>1.0.0-SNAPSHOT</anytxn.instalment.version>
+        <anytxn.encryption.version>1.0.0-SNAPSHOT</anytxn.encryption.version>
+        <anytxn.settle.version>1.0.0-SNAPSHOT</anytxn.settle.version>
+        <anytxn.common.manager.version>1.0.0-SNAPSHOT</anytxn.common.manager.version>
+        <anytxn.event.consumer.version>1.0.0-SNAPSHOT</anytxn.event.consumer.version>
+    </properties>
+
+    <!-- 只是定义，子模块 -->
+    <dependencyManagement>
+
+        <dependencies>
+
+            <!--<dependency>
+                <groupId>com.ecwid.consul</groupId>
+                <artifactId>consul-api</artifactId>
+                <version>${consul-api.version}</version>
+            </dependency>-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-task-batch</artifactId>
+                <version>${spring-cloud-task-batch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <!--剔除的依赖包都在dependencyManagement中定义，不在依赖配置中定义-->
+                <!--剔除logback的日志使用，使用log4j2..-->
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- 不使用 tomcat作为默认容器，使用undertow作为容器-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-tomcat</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- 升级TOMCAT到9.0.31版本
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-core</artifactId>
+                <version>${tomcat-embed.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-el</artifactId>
+                <version>${tomcat-embed.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-websocket</artifactId>
+                <version>${tomcat-embed.version}</version>
+            </dependency>
+            -->
+            <dependency>
+                <groupId>org.jpos</groupId>
+                <artifactId>jpos</artifactId>
+                <version>${jpos.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.sleepycat</groupId>
+                        <artifactId>je</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+            <!-- swagger api -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger-annotations.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <!-- swagger ui页面 -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <!-- swagger 自定义页面 -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>swagger-bootstrap-ui</artifactId>
+                <version>${swagger.bootstrap.ui.version}</version>
+            </dependency>
+            <!-- mybatis -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.starter.version}</version>
+                <!--剔除logback的日志使用，使用log4j2-->
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- mybatis 分页插件 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${mybatis.pagehelper.starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+
+            <!-- 维护最新版本的guava，常用工具类 -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <!-- mysql jdbc -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.5.version}</version>
+            </dependency>
+
+            <!-- oracle的jdbc driver，在私服中已存放 -->
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc6</artifactId>
+                <version>${oracle.6.version}</version>
+            </dependency>
+            <!-- oracle的jdbc driver，在私服中已存放 -->
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc8</artifactId>
+                <version>${oracle.8.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${cglib.version}</version>
+            </dependency>
+            <!-- 高速内存队列，log4j异步处理时使用 -->
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>${disruptor.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.googlecode.aviator</groupId>
+                <artifactId>aviator</artifactId>
+                <version>${aviator.version}</version>
+            </dependency>
+
+            <!-- spring cloud的jar包版本依赖管理 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-task-dependencies</artifactId>
+                <version>${spring-cloud-task.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>${nacos.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${nacos.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>${jasypt.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alicp.jetcache</groupId>
+                <artifactId>jetcache-anno</artifactId>
+                <version>${jetcache.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alicp.jetcache</groupId>
+                <artifactId>jetcache-core</artifactId>
+                <version>${jetcache.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alicp.jetcache</groupId>
+                <artifactId>jetcache-autoconfigure</artifactId>
+                <version>${jetcache.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alicp.jetcache</groupId>
+                <artifactId>jetcache-starter-redis-lettuce</artifactId>
+                <version>${jetcache.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-text</artifactId>
+                <version>${commons-text.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-dbutils</groupId>
+                <artifactId>commons-dbutils</artifactId>
+                <version>${commons-dbutils.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-api-mockito2</artifactId>
+                <version>${powermock.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-module-junit4</artifactId>
+                <version>${powermock.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot.version}</version>
+                <!--<scope>test</scope>-->
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.mockito</groupId>
+                        <artifactId>mockito-core</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.plumelog</groupId>
+                <artifactId>plumelog-log4j2</artifactId>
+                <version>${plume.log.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.plumelog</groupId>
+                <artifactId>plumelog-trace</artifactId>
+                <version>${plume.log.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>
+                <version>${shardingsphere.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-transaction-xa-core</artifactId>
+                <version>${shardingsphere.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 依赖jar包，尽可能少在parent中定义，不要定义业务类的jar依赖在parent中. -->
+    <dependencies>
+        <!-- 使用log4j2的日志 -->
+        <!-- <dependency>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-log4j2</artifactId>
+         </dependency>-->
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j2.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j-api</artifactId>
+                    <groupId>org.apache.logging.log4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>log4j-core</artifactId>
+                    <groupId>org.apache.logging.log4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j2.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j-api</artifactId>
+                    <groupId>org.apache.logging.log4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-jul</artifactId>
+            <version>${log4j2.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j-api</artifactId>
+                    <groupId>org.apache.logging.log4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+            <version>1.7.29</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <!-- 代码编译指定jdk版本 -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <!-- 打包编译跳过测试类执行 -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+            <plugin>
+                <!-- 生成maven打包编译时的时间字段，这里为build.time字段 -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>timestamp-property</id>
+                        <goals>
+                            <goal>timestamp-property</goal>
+                        </goals>
+                        <configuration>
+                            <name>build.time</name>
+                            <pattern>yyyy-MM-dd'T'HH:mm</pattern>
+                            <timeZone>GMT+8</timeZone>
+                            <locale>zh_CN</locale>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <!-- spring boot的maven包，不执行repackage的打包命令，不打包成fat可执行jar，如果需要fat可执行jar，在对应的子模块pom中重新定义覆盖父类的定义 -->
+                    <execution>
+                        <id>repackage</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                    </execution>
+                    <!-- 在包的META-INFO目录下面生成编译的build-info.properties文件，作为包的编译信息描述，此信息可通过actuator/info接口查看 -->
+                    <execution>
+                        <id>build-info</id>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                        <configuration>
+                            <additionalProperties>
+                                <encoding>${project.build.sourceEncoding}</encoding>
+                                <time>${build.time}</time>
+                            </additionalProperties>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>${fabric8.maven.plugin.version}</version>
+                <configuration>
+                    <!--配置远程docker守护进程url-->
+                    <!--                    <dockerHost></dockerHost>-->
+                    <!--认证配置,用于私有registry认证-->
+                    <authConfig>
+                        <username>docker_deployer</username>
+                        <password>Deployer1234</password>
+                    </authConfig>
+                    <!--镜像相关配置,支持多镜像-->
+                    <images>
+                        <!-- 单个镜像配置 -->
+                        <image>
+                            <!--镜像名(含版本号)-->
+                            <name>k8s.jrx.com:443/anytxn/${project.artifactId}:${project.version}</name>
+                            <!--registry地址,用于推送,拉取镜像-->
+                            <registry>k8s.jrx.com:443</registry>
+                            <!--镜像build相关配置-->
+                            <build>
+                                <!--使用dockerFile文件-->
+                                <dockerFile>${project.basedir}/Dockerfile</dockerFile>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- 工程的deploy地址，不要每个子模块都定义 -->
+    <distributionManagement>
+        <repository>
+            <id>sgk-releases</id>
+            <url>http://10.0.9.13:8083/nexus/content/repositories/sab-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>sgk-snapshots</id>
+            <url>http://10.0.9.13:8083/nexus/content/repositories/sab-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
