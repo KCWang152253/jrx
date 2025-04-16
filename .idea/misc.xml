@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/nacos-develop/pom.xml" />
         <option value="$PROJECT_DIR$/anytxn-biz-common/pom.xml" />
         <option value="$PROJECT_DIR$/anytxn-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/nacos-develop/persistence/pom.xml" />
       </list>
     </option>
   </component>

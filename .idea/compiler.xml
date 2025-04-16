@@ -6,24 +6,43 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="nacos-encryption-plugin" />
+        <module name="nacos-persistence" />
+        <module name="nacos-client" />
+        <module name="nacos-common" />
+        <module name="nacos-example" />
+        <module name="nacos-trace-plugin" />
+        <module name="nacos-consistency" />
+        <module name="nacos-auth-plugin" />
+        <module name="naming-test" />
         <module name="anyapi-service-base" />
+        <module name="nacos-console" />
+        <module name="nacos-core" />
+        <module name="nacos-address" />
         <module name="anyapi-service-sdk" />
+        <module name="nacos-config" />
+        <module name="nacos-api" />
+        <module name="nacos-default-plugin-all" />
+        <module name="default-auth-plugin" />
+        <module name="nacos-config-plugin" />
+        <module name="nacos-datasource-plugin" />
         <module name="anyapi-service-server" />
+        <module name="nacos-sys" />
+        <module name="default-control-plugin" />
+        <module name="core-test" />
+        <module name="nacos-log4j2-adapter" />
+        <module name="nacos-auth" />
+        <module name="nacos-cmdb" />
+        <module name="nacos-naming" />
+        <module name="nacos-control-plugin" />
+        <module name="nacos-istio" />
+        <module name="nacos-custom-environment-plugin" />
+        <module name="nacos-prometheus" />
+        <module name="config-test" />
+        <module name="nacos-logback-adapter-12" />
         <module name="anytxn-biz-common" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="nacos-address" target="1.8" />
-      <module name="nacos-api" target="1.8" />
-      <module name="nacos-client" target="1.8" />
-      <module name="nacos-cmdb" target="1.8" />
-      <module name="nacos-common" target="1.8" />
-      <module name="nacos-console" target="1.8" />
-      <module name="nacos-naming" target="1.8" />
-      <module name="nacos-persistence" target="1.8" />
-      <module name="nacos-prometheus" target="1.8" />
-      <module name="nacos-sys" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
